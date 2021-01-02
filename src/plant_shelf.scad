@@ -57,7 +57,7 @@ cutgap=bit*3;
 
 back_pins=4;
 pintail_gap=in/16;
-pintail_hole=bit;
+pintail_hole=bit*1.1;
 
 module shelf() {
     difference() {
@@ -263,8 +263,7 @@ module assembled() {
 }
 
 module shelf_cutsheet() {
-    translate([0,0,-1])
-    #square([plywood_x,plywood_y]);
+    //translate([0,0,-1]) #square([plywood_x,plywood_y]);
 
     translate([plywood_x/2,plywood_y-spine_gap/2])
     rotate([0,0,90])
@@ -285,9 +284,9 @@ module dirror() {
     children();
 }
 
+// RENDER svg
 module spine_cutsheet() {
-    translate([0,0,-1])
-    #square([plywood_x,plywood_y]);
+    //translate([0,0,-1]) #square([plywood_x,plywood_y]);
 
     translate([height/2,plywood_y/2-60])
     dirror()
@@ -312,13 +311,10 @@ module spine_cutsheet() {
     rotate([0,0,90])
     shelf();
 }
-spine_cutsheet();
-//shelf_cutsheet();
+
+//spine_cutsheet();
 
 //spine();
 //shelf();
 //back();
-
-
-translate([-shelf_x/2,0])
-assembled();
+//assembled();
